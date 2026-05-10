@@ -9,7 +9,7 @@ Built as a mobile-first installable web app (PWA-style) and hosted using GitHub 
 ## 🚀 Live App
 Once deployed via GitHub Pages:
 
-https://YOUR_USERNAME.github.io/budget-engine/
+https://harcol94.github.io/budget-engine/
 
 ---
 
