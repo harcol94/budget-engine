@@ -1,20 +1,42 @@
-# 💰 Budget Engine
+# 💰 Budget Engine 2.0
 
-Budget Engine is a simple paycheck-based budgeting app designed to help you visually track how each paycheck contributes toward your monthly bills.
+A personal paycheck-based budgeting web app that automatically distributes income across real-world bills, tracks progress over time, and keeps a running history of every paycheck.
+
+Built as a mobile-first installable web app (PWA-style) and hosted using GitHub Pages.
+
+---
+
+## 🚀 Live App
+Once deployed via GitHub Pages:
+
+https://YOUR_USERNAME.github.io/budget-engine/
+
+---
 
 ## ✨ Features
 
-- Automatically allocates 80% of each paycheck toward bills
-- Proportional distribution based on remaining balances
+### 💵 Smart Paycheck Allocation
+- Automatically allocates **80% of each paycheck**
+- Distributes funds proportionally across unpaid bills
+- Prevents over-allocation and keeps budgeting realistic
+
+### 📊 Bill Progress Tracking
 - Visual progress bars for each bill
-- Paycheck history tracking
-- Monthly reset button
-- Data saved locally in your browser
-- Mobile-friendly interface
-- Installable to your phone home screen
+- Shows funded vs total amount
+- Updates in real time after each paycheck
 
-## 📋 Included Bill Categories
+### 📜 Paycheck History System
+- Logs every paycheck distribution
+- Shows:
+  - paycheck amount
+  - total allocated
+  - timestamp
+- Keeps last 10 entries
 
+### 🧾 Expanded Bill Categories
+Supports a full real-world budget:
+
+**Core Bills**
 - Rent
 - Electric
 - Internet
@@ -22,25 +44,79 @@ Budget Engine is a simple paycheck-based budgeting app designed to help you visu
 - Credit Card
 - Car Payment
 
-## 🚀 How It Works
+**Lifestyle & Household**
+- Groceries
+- Gas / Fuel
+- Auto Insurance
+- Health Insurance
+- Child Expenses
+- Streaming Services
+- Emergency Fund
+- Miscellaneous
 
-1. Enter your monthly bill amounts.
-2. Enter your paycheck amount.
-3. Tap **Distribute Paycheck**.
-4. The app allocates 80% of your paycheck across all unpaid bills.
-5. Track your progress over time.
+---
 
-## 📱 Install on Your Phone
+## 🧠 How It Works
 
-Open the app in your mobile browser and choose **Add to Home Screen** to install it like an app.
+1. Enter your bill amounts
+2. Enter your paycheck
+3. Click **Distribute Paycheck**
+4. The app:
+   - Uses 80% of paycheck
+   - Splits it proportionally based on unpaid balances
+   - Updates progress bars
+   - Logs the transaction in history
+
+---
+
+## 📱 Install as an App
+
+You can install this directly on your phone:
+
+1. Open the site in Chrome or Edge
+2. Tap the menu (⋮)
+3. Select **Add to Home Screen**
+
+Now it runs like a native app.
+
+---
 
 ## 💾 Data Storage
 
-All data is stored locally in your browser using localStorage. No information is uploaded to any server.
+- All data is stored locally in your browser (localStorage)
+- No accounts required
+- No cloud tracking
+- Data persists between sessions
 
-## 🛠️ Technologies Used
+---
+
+## 🛠️ Tech Stack
 
 - HTML
 - CSS
 - JavaScript
-- GitHub Pages
+- GitHub Pages hosting
+
+---
+
+## 🔮 Planned Features
+
+- Due date prioritization system
+- Savings goals module
+- “Safe to spend” daily indicator
+- Charts and financial forecasting
+- Export/backup system
+- Overtime income simulator
+
+---
+
+## 📌 Purpose
+
+This project was built to replace spreadsheets with a simple, visual, paycheck-driven budgeting system that makes it easy to understand where every dollar goes.
+
+---
+
+## ⚠️ Notes
+
+- Clearing browser data will reset stored progress
+- Designed for mobile-first use
