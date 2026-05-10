@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Budget Engine (Stable)</title>
+<title>Budget Engine (2.2)</title>
 
 <style>
 body{
@@ -47,7 +47,7 @@ button{
 
 .bar{
   height:10px;
-pi  background:#0b0f19;
+  background:#0b0f19;
   border-radius:8px;
   overflow:hidden;
   margin-top:6px;
@@ -79,16 +79,24 @@ pi  background:#0b0f19;
 
 <div class="container">
 
-<h2>💰 Budget Engine (Stable)</h2>
+<h2> Budget Engine 2.3a</h2>
 
 <div class="card">
   <input id="paycheck" type="number" placeholder="Paycheck amount">
+  <input id="savingsRate" type="number" placeholder="What % You Want to Keep (e.g. 10)" value="10">
   <button onclick="run()">Distribute Paycheck</button>
 </div>
 
 <div class="card">
+  <h3>💰 Savings</h3>
+  <div class="row">
+    <span>Total Saved</span>
+    <span id="savingsText">$0</span>
+  </div>
+</div>
 
-  <!-- CORE BILLS -->
+<div class="card">
+
   <input id="rent" placeholder="Rent">
   <div class="bar"><div id="rentBar" class="fill"></div></div>
   <div class="row"><span>Rent</span><span id="rentText"></span></div>
@@ -113,7 +121,6 @@ pi  background:#0b0f19;
   <div class="bar"><div id="carBar" class="fill"></div></div>
   <div class="row"><span>Car</span><span id="carText"></span></div>
 
-  <!-- EXPANDED LIFE BILLS -->
   <input id="groceries" placeholder="Groceries">
   <div class="bar"><div id="groceriesBar" class="fill"></div></div>
   <div class="row"><span>Groceries</span><span id="groceriesText"></span></div>
@@ -138,7 +145,7 @@ pi  background:#0b0f19;
   <div class="bar"><div id="streamingBar" class="fill"></div></div>
   <div class="row"><span>Streaming</span><span id="streamingText"></span></div>
 
-  <input id="emergency" placeholder="Emergency Fund">
+  <input id="emergency" placeholder="Emergency Fund (Bill Target)">
   <div class="bar"><div id="emergencyBar" class="fill"></div></div>
   <div class="row"><span>Emergency</span><span id="emergencyText"></span></div>
 
@@ -160,6 +167,7 @@ pi  background:#0b0f19;
 let history = [];
 
 let state = {
+  savings:0,
   rent:0,
   electric:0,
   internet:0,
@@ -185,7 +193,13 @@ function run(){
   let paycheck = val("paycheck");
   if(paycheck <= 0) return;
 
-  let allocation = paycheck * 0.8;
+  // 💰 PAY YOURSELF FIRST
+  let savingsRate = val("savingsRate") / 100;
+  let savingsAmount = paycheck * savingsRate;
+
+  state.savings += savingsAmount;
+
+  let remaining = paycheck - savingsAmount;
 
   let bills = {
     rent: val("rent"),
@@ -220,12 +234,13 @@ function run(){
   let snapshot = {
     time: new Date().toLocaleString(),
     paycheck,
+    savings: savingsAmount,
     allocations:{}
   };
 
   for(let k in needs){
 
-    let share = (needs[k] / totalNeed) * allocation;
+    let share = (needs[k] / totalNeed) * remaining;
 
     state[k] += share;
 
@@ -240,6 +255,9 @@ function run(){
 }
 
 function updateUI(bills){
+
+  document.getElementById("savingsText").innerText =
+    `$${state.savings.toFixed(2)}`;
 
   for(let k in bills){
 
@@ -268,7 +286,8 @@ function renderHistory(){
     div.innerHTML = `
       <b>${h.time}</b><br>
       Paycheck: $${h.paycheck}<br>
-      Allocated: $${total.toFixed(2)}
+      Savings: $${h.savings.toFixed(2)}<br>
+      Bills Allocated: $${total.toFixed(2)}
     `;
 
     el.appendChild(div);
