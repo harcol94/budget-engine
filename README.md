@@ -1,42 +1,48 @@
-# 💰 Budget Engine 2.0
+# Budget Engine 2.3a
 
-A personal paycheck-based budgeting web app that automatically distributes income across real-world bills, tracks progress over time, and keeps a running history of every paycheck.
+A simple, visual paycheck allocation tool that shows exactly where your money should go, while prioritizing savings first.
 
-Built as a mobile-first installable web app (PWA-style) and hosted using GitHub Pages.
+Built as a mobile-first web app and designed to be instantly shareable.
 
 ---
 
-## 🚀 Live App
-Once deployed via GitHub Pages:
+## 🚀 Live Demo
+Host via GitHub Pages:
 
 https://harcol94.github.io/budget-engine/
 
 ---
 
-## ✨ Features
+## ✨ What This Does
 
-### 💵 Smart Paycheck Allocation
-- Automatically allocates **80% of each paycheck**
-- Distributes funds proportionally across unpaid bills
-- Prevents over-allocation and keeps budgeting realistic
+Budget Engine 2.3a takes your paycheck and:
 
-### 📊 Bill Progress Tracking
-- Visual progress bars for each bill
-- Shows funded vs total amount
-- Updates in real time after each paycheck
+### 💰 1. Pays You First
+- You set a savings %
+- That amount is taken out immediately
 
-### 📜 Paycheck History System
-- Logs every paycheck distribution
+### 🧾 2. Distributes Remaining Money
+- Automatically allocates leftover money across your bills
+- Uses a proportional “needs-based” system
+
+### 📊 3. Tracks Progress
+- Each bill shows:
+  - total needed
+  - current funded amount
+- Visual progress bars update in real time
+
+### 📜 4. Paycheck History
+- Stores last 10 paycheck distributions
 - Shows:
   - paycheck amount
-  - total allocated
-  - timestamp
-- Keeps last 10 entries
+  - savings added
+  - total allocated to bills
 
-### 🧾 Expanded Bill Categories
-Supports a full real-world budget:
+---
 
-**Core Bills**
+## 🧠 Supported Budget Categories
+
+### Core Bills
 - Rent
 - Electric
 - Internet
@@ -44,79 +50,62 @@ Supports a full real-world budget:
 - Credit Card
 - Car Payment
 
-**Lifestyle & Household**
+### Lifestyle & Living
 - Groceries
 - Gas / Fuel
-- Auto Insurance
+- Insurance (Auto)
 - Health Insurance
 - Child Expenses
 - Streaming Services
-- Emergency Fund
 - Miscellaneous
 
----
-
-## 🧠 How It Works
-
-1. Enter your bill amounts
-2. Enter your paycheck
-3. Click **Distribute Paycheck**
-4. The app:
-   - Uses 80% of paycheck
-   - Splits it proportionally based on unpaid balances
-   - Updates progress bars
-   - Logs the transaction in history
+### Financial Goals
+- Emergency Fund (treated like a bill target)
 
 ---
 
-## 📱 Install as an App
+## ⚙️ How It Works
 
-You can install this directly on your phone:
-
-1. Open the site in Chrome or Edge
-2. Tap the menu (⋮)
-3. Select **Add to Home Screen**
-
-Now it runs like a native app.
+1. Enter paycheck amount
+2. Set savings percentage (pay yourself first)
+3. Enter monthly bill amounts
+4. Click **Split That Paycheck!**
+5. Watch your money get distributed instantly
 
 ---
 
-## 💾 Data Storage
+## 💡 Key Idea
 
-- All data is stored locally in your browser (localStorage)
-- No accounts required
-- No cloud tracking
-- Data persists between sessions
+Instead of guessing where your money goes, this tool shows:
 
----
-
-## 🛠️ Tech Stack
-
-- HTML
-- CSS
-- JavaScript
-- GitHub Pages hosting
+> “This is exactly how your paycheck is being used.”
 
 ---
 
-## 🔮 Planned Features
+## 📱 Mobile Friendly / Installable
 
-- Due date prioritization system
-- Savings goals module
-- “Safe to spend” daily indicator
-- Charts and financial forecasting
-- Export/backup system
-- Overtime income simulator
+You can install it like an app:
+- Open in Chrome
+- Tap “Add to Home Screen”
 
 ---
 
-## 📌 Purpose
+## 🔮 Future Ideas
 
-This project was built to replace spreadsheets with a simple, visual, paycheck-driven budgeting system that makes it easy to understand where every dollar goes.
+- Due date priority system
+- “Safe to spend” calculator
+- Income variability simulator (overtime / low weeks)
+- Export/share visual breakdown cards
 
 ---
 
 ## ⚠️ Notes
 
-- Clearing browser data will reset stored progress
-- Designed for mobile-first use
+- Refreshing clears history (current version uses in-memory storage)
+- Designed for fast, lightweight use NOT full accounting software
+
+---
+
+## 🎯 Purpose
+
+To give users a **clear, visual understanding of where their paycheck actually goes**, while enforcing savings discipline automatically.
